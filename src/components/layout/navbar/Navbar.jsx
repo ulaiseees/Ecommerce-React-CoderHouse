@@ -1,18 +1,18 @@
 import { CartWidget } from "./CartWidget"
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
-  const categorias = ["Con Envío", "Sin Envío"];
   return (
     <nav className="navbar-container">
       <div className="container">
-        <h1> Pedras Boreales </h1>
+        <Link to={"/"}>
+        <h1>Pedras Boreales</h1>
+        </Link>
         <ul className="navbar-lista">
-          {categorias.map((categoria) => (
-          <li key={categoria}>
-            <a href="{categoria}">{categoria}</a>
-          </li>
-        ))}
+          <Link to={"/"}>Todas</Link>
+          <Link to={"/category/Con Envio"}>Con Envío</Link>
+          <Link to={"/category/Sin Envio"}>Sin Envío</Link>
         </ul>
       </div>
       <CartWidget />

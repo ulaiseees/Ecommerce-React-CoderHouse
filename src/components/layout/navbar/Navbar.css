@@ -7,6 +7,10 @@
     align-items: center;
   }
 
+  .container {
+    text-decoration: none;
+  }
+
 .navbar-lista {
     display: flex;
     gap: 40px;

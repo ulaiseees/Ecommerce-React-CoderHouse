@@ -1,36 +1,37 @@
-import ProductCard from "../../common/productCard/ProductCard"
+import { useEffect, useState } from "react"
+import { products } from "../../../productsMock"
+import ItemList from "./ItemList"
+import { useParams } from "react-router-dom"
 
-const ItemListContainer = ({saludo}) => {
-  return (
-    <div 
-    style=
-    {{width: "100%",
-    display: "flex",
-    justifyContent: "center",
-    gap: "40px",
-    backgroundColor: "steelblue",}}>
+const ItemListContainer = () => {
 
-    <h1> {saludo} </h1>
+  const {name} = useParams ()
+  console.log (name)
 
-    <ProductCard 
-    titulo={"Producto 1"} 
-    descripcion={"Descripción 1"} 
-    precio={"$240"}
-    />
-    <ProductCard 
-    titulo={"Producto 2"} 
-    descripcion={"Descripción 2"} 
-    precio={"$240"}
-    />
-    <ProductCard 
-    titulo={"Producto 3"} 
-    descripcion={"Descripción 3"} 
-    precio={"$240"}
-    />
+  const [items, setItems] = useState([])
 
-    </div>
-    
-  )
+  useEffect ( () => {
+
+    let productsFiltered = products.filter( product => product.category === name)
+
+    const getProducts = new Promise ((resolve, reject) => {
+      let x = true
+      if (x){
+        setTimeout (() => {
+          resolve (name ? productsFiltered : products);
+        }, 200);
+      }else {
+        reject ("error!")
+      }
+  
+    })
+  
+    getProducts.then((res)=>setItems(res)).catch((error)=>{console.log(error)})
+  }, [name])
+
+  console.log (items)
+
+  return <ItemList items={items}/>
 }
 
 export default ItemListContainer
