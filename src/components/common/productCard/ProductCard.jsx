@@ -8,6 +8,7 @@ return (
     <Card sx={{ maxWidth: 345 }}>
     <CardMedia
     sx={{ height: 140 }}
+    component={"img"}
     image={img}
     title={title}
     />

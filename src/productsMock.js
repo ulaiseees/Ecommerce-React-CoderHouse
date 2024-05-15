@@ -5,7 +5,7 @@ export let products = [
         title: "Rodocrosita",
         price: 500,
         img: "https://cdn.shopify.com/s/files/1/0266/2688/3633/files/Rodocrosita_detalle_480x480.jpg?v=1659539019",
-        stock: 124,
+        stock: 2,
         category: "Con Envio",
         description: "La rodocrosita es una piedra semipreciosa de color rosa a rojo intenso, conocida por sus vetas blancas que le dan un aspecto marmóreo."
     },
@@ -14,7 +14,7 @@ export let products = [
         title: "Agata",
         price: 289,
         img: "https://www.reino-minerales.es/wp-content/uploads/2020/12/pierre-agate.jpg",
-        stock: 544,
+        stock: 5,
         category: "Sin Envio",
         description: "El ágata es una gema de cuarzo con bandas distintivas en una variedad de colores y patrones. "
     },
@@ -23,7 +23,7 @@ export let products = [
         title: "Topacio",
         price: 130,
         img: "https://cdn.shopify.com/s/files/1/0503/3292/6125/files/piedra-topacio.jpg?v=1695816190",
-        stock: 200,
+        stock: 6,
         category: "Sin Envio",
         description: "El topacio es una piedra preciosa de colores variados, desde amarillo hasta azul, rosa, y más. "
     },

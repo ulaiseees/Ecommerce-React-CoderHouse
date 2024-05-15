@@ -2,9 +2,8 @@ import { Grid } from "@mui/material";
 import ProductCard from "../../common/productCard/ProductCard"
 
 const ItemList = ( {items} ) => {
-    console.log (items);
     return (
-    <div style={ {display: "flex", justifyContent: "space-evenly"}}>
+    <div>
     <Grid container gap={"10px"}>
     {items.map( (item) => {
         return (

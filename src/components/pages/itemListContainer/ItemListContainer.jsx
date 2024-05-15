@@ -2,13 +2,15 @@ import { useEffect, useState } from "react"
 import { products } from "../../../productsMock"
 import ItemList from "./ItemList"
 import { useParams } from "react-router-dom"
+import { CircularProgress, Skeleton } from "@mui/material";
+
 
 const ItemListContainer = () => {
 
   const {name} = useParams ()
-  console.log (name)
 
   const [items, setItems] = useState([])
+  const [error, setError] = useState(null);
 
   useEffect ( () => {
 
@@ -19,19 +21,93 @@ const ItemListContainer = () => {
       if (x){
         setTimeout (() => {
           resolve (name ? productsFiltered : products);
-        }, 200);
+        }, 3000);
       }else {
         reject ("error!")
       }
   
     })
   
-    getProducts.then((res)=>setItems(res)).catch((error)=>{console.log(error)})
+    getProducts.then((res) => setItems(res)).catch((error) => setError(error));
   }, [name])
 
-  console.log (items)
 
-  return <ItemList items={items}/>
-}
+  if (items.length === 0) {
+    return (
+      <div style={{ display: "flex", gap: "25px" }}>
+        <div>
+          <Skeleton
+            variant="rectangular"
+            sx={{ fontSize: "1rem" }}
+            height={200}
+            width={300}
+          />
+          <Skeleton
+            variant="text"
+            sx={{ fontSize: "1rem" }}
+            height={40}
+            width={300}
+          />
+          <Skeleton
+            variant="text"
+            sx={{ fontSize: "0.5rem" }}
+            height={20}
+            width={100}
+          />
+        </div>
+        <div>
+          <Skeleton
+            variant="rectangular"
+            sx={{ fontSize: "1rem" }}
+            height={200}
+            width={300}
+          />
+          <Skeleton
+            variant="text"
+            sx={{ fontSize: "1rem" }}
+            height={40}
+            width={300}
+          />
+          <Skeleton
+            variant="text"
+            sx={{ fontSize: "0.5rem" }}
+            height={20}
+            width={100}
+          />
+        </div>
+        <div>
+          <Skeleton
+            variant="rectangular"
+            sx={{ fontSize: "1rem" }}
+            height={200}
+            width={300}
+          />
+          <Skeleton
+            variant="text"
+            sx={{ fontSize: "1rem" }}
+            height={40}
+            width={300}
+          />
+          <Skeleton
+            variant="text"
+            sx={{ fontSize: "0.5rem" }}
+            height={20}
+            width={100}
+          />
+        </div>
+      </div>
+    );
+  }
 
-export default ItemListContainer
+return (
+  <>
+    {items.length > 0 ? (
+      <ItemList items={items} error={error} />
+    ) : (
+      <CircularProgress />
+    )}
+  </>
+);
+};
+
+export default ItemListContainer;

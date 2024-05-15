@@ -1,12 +1,17 @@
 import { useState } from "react"
+import CounterPresentacional from "./CounterPresentacional"
 
 
-export const Counter = () => {
-
-    const [ contador, setContador ] = useState(0)
+export const Counter = ( {stock, initial=1, onAdd} ) => {
+    
+    const [ contador, setContador ] = useState(initial)
 
     const sumar = () => {
-        setContador( contador + 1 )
+        if(contador < stock){
+            setContador( contador + 1 )
+        } else {
+            alert("No hay más Stock!")
+        }
     }
 
     const restar = () => {
@@ -18,12 +23,17 @@ export const Counter = () => {
         }
     }
 
+    
+
+    let objectProps = {
+        restar,
+        sumar,
+        contador,
+        onAdd
+    };
+
   return (
-    <div>
-        <button onClick={restar}>Restar</button>
-        <h2>{contador}</h2>
-        <button onClick={sumar}>Sumar</button>
-    </div>
+    <CounterPresentacional {...objectProps}/>
   )
 }
 
