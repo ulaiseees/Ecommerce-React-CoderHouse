@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import ItemList from "./ItemList"
 import { useParams } from "react-router-dom"
 import { CircularProgress, Skeleton } from "@mui/material";
-import { db } from "../../../firebaseconfig";
+import { db } from "../../../firebaseConfig";
 
 import {addDoc, collection, getDocs, query, where} from "firebase/firestore"
 

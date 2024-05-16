@@ -8,8 +8,8 @@ const firebaseConfig = {
   storageBucket: "pedras-boreales-back.appspot.com",
   messagingSenderId: "896649143688",
   appId: "1:896649143688:web:2990fc0818a5ac263f063d"
-};
 
-const app = initializeApp( firebaseConfig );
+};
+const app = initializeApp(firebaseConfig);
 export const db = getFirestore( app )
 
