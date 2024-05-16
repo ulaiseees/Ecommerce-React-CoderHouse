@@ -22,8 +22,8 @@ const ItemDetail = ({ item, initial, onAdd}) => {
           </h2>
         </div>
       </div>
-      <div>
-        <Counter stock={item.stock} initial={initial} onAdd={onAdd}/>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <Counter stock={item.stock} onAdd={onAdd} initial={initial} />
       </div>
     </div>
   );

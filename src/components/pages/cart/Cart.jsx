@@ -45,7 +45,7 @@ const Cart = ({cart, clearCart, deleteById, total}) => {
       </div>
     ))}
 
-    <h2>El total a pagar es ${total}</h2>
+    <h2>El total a pagar es {total}</h2>
 
     <Button onClick={clearCartAlert} variant="contained">Limpiar Carrito</Button>
     

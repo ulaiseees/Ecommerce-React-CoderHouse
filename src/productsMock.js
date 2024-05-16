@@ -16,7 +16,7 @@ export let products = [
         img: "https://www.reino-minerales.es/wp-content/uploads/2020/12/pierre-agate.jpg",
         stock: 5,
         category: "Sin Envio",
-        description: "El ágata es una gema de cuarzo con bandas distintivas en una variedad de colores y patrones. "
+        description: "El ágata es una gema de cuarzo con bandas distintivas en una variedad de colores y patrones."
     },
     {
         id: 3,

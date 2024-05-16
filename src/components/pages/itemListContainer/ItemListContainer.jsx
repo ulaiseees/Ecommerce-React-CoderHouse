@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react"
-import { products } from "../../../productsMock"
 import ItemList from "./ItemList"
 import { useParams } from "react-router-dom"
 import { CircularProgress, Skeleton } from "@mui/material";
+import { db } from "../../../firebaseconfig";
+
+import {addDoc, collection, getDocs, query, where} from "firebase/firestore"
+
 
 
 const ItemListContainer = () => {
@@ -14,23 +17,18 @@ const ItemListContainer = () => {
 
   useEffect ( () => {
 
-    let productsFiltered = products.filter( product => product.category === name)
-
-    const getProducts = new Promise ((resolve, reject) => {
-      let x = true
-      if (x){
-        setTimeout (() => {
-          resolve (name ? productsFiltered : products);
-        }, 3000);
-      }else {
-        reject ("error!")
-      }
-  
-    })
-  
-    getProducts.then((res) => setItems(res)).catch((error) => setError(error));
-  }, [name])
-
+    const productsCollection = collection(db, "products");
+    let consulta = productsCollection;
+    if (name) {
+      consulta = query(productsCollection, where("category", "==", name));
+    }
+    getDocs(consulta).then((res) => {
+      let newArray = res.docs.map((doc) => {
+        return { id: doc.id, ...doc.data() };
+      }); // []
+      setItems(newArray);
+    });
+  }, [name]);
 
   if (items.length === 0) {
     return (
