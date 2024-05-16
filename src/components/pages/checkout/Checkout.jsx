@@ -1,8 +1,8 @@
 import { Button, TextField } from "@mui/material";
 import { useContext, useState } from "react";
 import { CartContext } from "../../../context/CartContext";
-import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
-import { db } from "../../../firebaseConfig";
+import { addDoc, collection, doc, updateDoc } from 'firebase/firestore';
+import { db } from "../../../firebaseconfig";
 
 export const Checkout = () => {
   const { cart, getTotalPrice, clearCart } = useContext(CartContext);
@@ -34,9 +34,6 @@ export const Checkout = () => {
     addDoc(ordersCollection, obj)
       .then((res) => setOrderId(res.id))
       .catch((error) => console.log(error));
-
-    // update de todos los productos que compramos
-    // let productsCollection = collection(db, "products")
 
     cart.forEach((product) => {
       let refDoc = doc(db, "products", product.id);

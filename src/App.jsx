@@ -4,7 +4,7 @@ import CartContainer from './components/pages/cart/CartContainer';
 import ItemDetailContainer from './components/pages/itemDetail/ItemDetailContainer';
 import './App.css'
 import { Layout } from './components/layout/Layout';
-import Checkout from './components/pages/checkout/Checkout';
+import {Checkout} from './components/pages/checkout/Checkout';
 import CartContextProvider from './context/CartContext';
 
 

@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom"
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../../context/CartContext";
 import Swal from 'sweetalert2'
-import { db } from "../../../firebaseConfig";
+import { db } from "../../../firebaseconfig";
 import {collection, doc, getDoc} from "firebase/firestore"
 
 const ItemDetailContainer = () => {

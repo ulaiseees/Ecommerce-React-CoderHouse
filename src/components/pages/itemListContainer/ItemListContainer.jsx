@@ -2,9 +2,9 @@ import { useEffect, useState } from "react"
 import ItemList from "./ItemList"
 import { useParams } from "react-router-dom"
 import { CircularProgress, Skeleton } from "@mui/material";
-import { db } from "../../../firebaseConfig";
+import { db } from "../../../firebaseconfig";
 
-import {addDoc, collection, getDocs, query, where} from "firebase/firestore"
+import {collection, getDocs, query, where} from "firebase/firestore"
 
 
 
@@ -13,7 +13,7 @@ const ItemListContainer = () => {
   const {name} = useParams ()
 
   const [items, setItems] = useState([])
-  const [error, setError] = useState(null);
+  const [error] = useState(null);
 
   useEffect ( () => {
 

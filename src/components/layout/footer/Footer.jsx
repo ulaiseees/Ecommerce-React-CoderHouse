@@ -2,7 +2,7 @@ import "./footer.css"
 
 const Footer = () => {
     return (
-      <h1>Esto es el footer!</h1>
+      <h3 style={{ display: "flex", justifyContent: "center", padding: "24px"}}>Pedras Boreales © {new Date().getFullYear()}</h3>
     )
   }
   
