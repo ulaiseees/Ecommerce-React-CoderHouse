@@ -1,7 +1,7 @@
 import Counter from "../../common/counter/Counter";
 import "./ItemDetail.css"
 
-const ItemDetail = ({ item, initial, onAdd}) => {
+const ItemDetail = ({ item, initial, onAdd }) => {
   return (
     <div>
       <div className={"containerItemDetail"}>

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 const ProductCard = ( {title, description, price, img, id} ) => {
 
-
 return (
     <Card sx={{ maxWidth: 345 }}>
     <CardMedia

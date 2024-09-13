@@ -25,7 +25,7 @@ const ItemListContainer = () => {
     getDocs(consulta).then((res) => {
       let newArray = res.docs.map((doc) => {
         return { id: doc.id, ...doc.data() };
-      }); // []
+      }); 
       setItems(newArray);
     });
   }, [name]);
